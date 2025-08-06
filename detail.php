@@ -127,10 +127,12 @@
 	<script>
 		function saveTicket() {
 		  const element = document.getElementById('ticket');
-		  html2canvas(element).then(canvas => {
+		  html2canvas(element, {
+   				backgroundColor: '#000000'
+  			}).then(canvas => {
 		    const link = document.createElement('a');
-		    link.download = 'ticket.png';
-		    link.href = canvas.toDataURL();
+		    link.download = 'ticket.jpg';
+		    link.href = canvas.toDataURL('image/jpeg', 0.5);
 		    link.click();
 		  });
 		}
